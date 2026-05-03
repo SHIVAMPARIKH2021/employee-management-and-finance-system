@@ -1,8 +1,7 @@
 # Employee Management and Finance System
 Employee Management and Finance System is a system to get employee data during onboarding and calculate salary and benefits according to employee's roles and responsibilities.
-—————————————————————————————————
 
-🟢 Phase 1: Database First (You already started)
+🟢 Phase 1: Database First
 - [ ] Finalize schema (what we built)
 - [ ] Add constraints + indexes
 - [ ] Insert sample data
@@ -109,3 +108,19 @@ Don’t over-engineer early.
   👉 Then evolve:
 - [ ] Split schemas
 - [ ] Add services
+
+# Below RFCs needs to be followed for each phase:
+-----------------------------------------------
+| Concept | RFC | Spring/JPA Implementation |
+|---|---|---|
+| Identity | RFC 4122 | UUID types in Entity IDs |
+| Error Handling | RFC 7807 | ProblemDetail class (Spring 6+) |
+| Concurrency | RFC 7232 | @Version and ETag support |
+| Partial Updates | RFC 5789 | PATCH method with JSON Merge Patch |
+| Partial Updates (Ops) | RFC 6902 | JSON Patch (via libraries like json-patch) |
+| Dates/Times | RFC 3339 | OffsetDateTime in JPA entities |
+
+* RFC 5789 / Merge Patch: Best for simple cases where the client sends only the changed fields.
+* RFC 6902 / JSON Patch: Best for complex updates where you need explicit operations (e.g., "remove this specific item from a list").
+
+
